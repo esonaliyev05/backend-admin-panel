@@ -1,4 +1,4 @@
-# Admin + Website Backend (Node.js + Express + PostgreSQL + Prisma + Swagger)
+<!-- # Admin + Website Backend (Node.js + Express + PostgreSQL + Prisma + Swagger)
 
 ## 1) O'rnatish
 ```bash
@@ -38,4 +38,4 @@ npm run dev
 - User token: `POST /api/auth/login` / `POST /api/auth/register`
 
 Admin himoyalangan endpointlarda:
-`Authorization: Bearer <ADMIN_TOKEN>`
+`Authorization: Bearer <ADMIN_TOKEN>` -->
