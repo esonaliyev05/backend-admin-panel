@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model Admin {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  password_hash String
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique
+  password_hash String
+  full_name     String?
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  price       Int      @default(0) // store in smallest unit (e.g. so'm)
+  category    String?
+  image_url   String?
+  is_active   Boolean  @default(true)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Banner {
+  id         Int      @id @default(autoincrement())
+  title      String?
+  text       String?
+  image_url  String?
+  is_active  Boolean  @default(true)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model BlogPost {
+  id         Int      @id @default(autoincrement())
+  title      String
+  slug       String   @unique
+  content    String
+  image_url  String?
+  is_active  Boolean  @default(true)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model About {
+  id         Int      @id @default(1)
+  title      String?
+  content    String?
+  image_url  String?
+  updated_at DateTime @updatedAt
+}
